@@ -16,7 +16,7 @@
         }
         
         body {
-            background: #000;
+            background: cover;
             color: white;
             font-family: 'Montserrat', sans-serif;
             /* Используем динамическую высоту вьюпорта для мобилок */
@@ -25,6 +25,7 @@
             overflow: hidden;
             position: fixed; /* Предотвращает "прыжки" при скролле */
             width: 100%;
+            transform: scale(1.05)
         }
 
         .game-container {
@@ -42,7 +43,7 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
         }
