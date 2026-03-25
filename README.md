@@ -1,27 +1,38 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Наша любовь: С 2004 года</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;700&display=swap');
         
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent; 
+            margin: 0;
+            padding: 0;
+        }
         
         body {
-            background: #0f0e17;
+            background: #000;
             color: white;
             font-family: 'Montserrat', sans-serif;
-            margin: 0;
+            /* Используем динамическую высоту вьюпорта для мобилок */
             height: 100vh;
+            height: 100dvh;
             overflow: hidden;
+            position: fixed; /* Предотвращает "прыжки" при скролле */
+            width: 100%;
         }
 
         .game-container {
             width: 100%;
             height: 100%;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .scene-bg {
@@ -32,95 +43,111 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
-            background-color: #1a1a2e;
         }
 
-        /* Цвета-заглушки на случай отсутствия картинок */
-        .bg-2004-school { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1200'); }
-        .bg-school-walk { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?q=80&w=1200'); }
-        .bg-separate-cities { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?q=80&w=1200'); }
-        .bg-social-like { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200'); }
-        .bg-cafe-meet { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200'); }
-        .bg-dating { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200'); }
-        .bg-wedding { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200'); }
-        .bg-wedding-ring { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200'); }
+        /* --- СЕКЦИЯ ВАШИХ ФОТО --- */
+        /* Замените названия файлов на свои, если они лежат в той же папке на GitHub */
+        .bg-2004-school { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_8323.jpg'); }
+        .bg-school-walk { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('camphoto_959030623.jpg'); }
+        .bg-separate-cities { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?q=80&w=1200'); }
+        .bg-social-like { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200'); }
+        .bg-cafe-meet { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200'); }
+        .bg-dating { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200'); }
+        .bg-wedding { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_8687.jpg'); }
+        .bg-wedding-ring { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200'); }
 
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.9) 90%);
+            /* Градиент стал более глубоким снизу для читаемости текста */
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(0,0,0,0.2) 50%, 
+                rgba(0,0,0,0.85) 100%);
             z-index: 2;
         }
 
         #ui-layer {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
+            bottom: 0; 
+            left: 0; 
+            right: 0;
             padding: 20px;
+            padding-bottom: calc(24px + env(safe-area-inset-bottom));
             z-index: 10;
-            padding-bottom: calc(20px + env(safe-area-inset-bottom));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
         #dialog-box {
-            background: rgba(26, 26, 46, 0.9);
-            border: 1px solid rgba(129, 140, 248, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 24px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         #speaker-name {
-            color: #a5b4fc;
+            color: #f472b6;
             font-weight: 700;
             font-size: 1.1rem;
             margin-bottom: 8px;
+            letter-spacing: 0.05em;
         }
 
         #text {
             font-size: 1rem;
-            line-height: 1.6;
+            line-height: 1.5;
             margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .choice-btn {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             margin-top: 10px;
-            background: rgba(99, 102, 241, 0.2);
-            border: 1px solid rgba(99, 102, 241, 0.5);
-            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
             color: white;
-            text-align: left;
-            font-weight: 500;
-            transition: all 0.3s;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
 
         .choice-btn:active {
-            background: rgba(99, 102, 241, 0.5);
-            transform: scale(0.98);
+            transform: scale(0.96);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .title-screen {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: #1a1a2e;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
             z-index: 100;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            transition: opacity 1s;
+            padding: 30px;
+            transition: opacity 1s ease;
         }
 
         .handwritten {
             font-family: 'Marck Script', cursive;
-            font-size: 3.5rem;
-            color: #f472b6;
-            text-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
+            font-size: clamp(3rem, 15vw, 5rem);
+            background: linear-gradient(to right, #f472b6, #fb923c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
         }
 
@@ -133,8 +160,8 @@
         <!-- ТИТУЛЬНЫЙ ЭКРАН -->
         <div id="title-screen" class="title-screen">
             <h1 class="handwritten">Наша любовь</h1>
-            <p class="text-indigo-300 tracking-[0.2em] text-sm mb-12 uppercase">История с 2004 года</p>
-            <button onclick="startPlay()" class="bg-gradient-to-r from-rose-500 to-pink-600 px-10 py-4 rounded-full font-bold text-lg shadow-lg shadow-rose-500/30 active:scale-95 transition-transform">
+            <p class="text-indigo-200 tracking-[0.3em] text-xs mb-12 uppercase font-medium">История с 2004 года</p>
+            <button onclick="startPlay()" class="bg-white text-indigo-950 px-12 py-5 rounded-full font-bold text-lg shadow-2xl active:scale-90 transition-transform">
                 Начать историю 💕
             </button>
         </div>
@@ -224,7 +251,7 @@
             setTimeout(() => {
                 bg.className = `scene-bg ${scene.bgClass}`;
                 bg.style.opacity = 1;
-            }, 300);
+            }, 100);
             
             document.getElementById('speaker-name').textContent = scene.speaker;
             document.getElementById('text').textContent = scene.text;
@@ -241,6 +268,11 @@
                 choicesContainer.appendChild(btn);
             });
         }
+        
+        // Предотвращение зума при кликах на iOS
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
     </script>
 </body>
 </html>
