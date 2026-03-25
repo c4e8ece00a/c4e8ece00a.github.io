@@ -1,4 +1,3 @@
-# c4e8ece00a.github.io
 <!DOCTYPE html>
 <html lang="ru">
 <head>
