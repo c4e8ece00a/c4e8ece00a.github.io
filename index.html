@@ -51,12 +51,12 @@
         /* Замените названия файлов на свои, если они лежат в той же папке на GitHub */
         .bg-2004-school { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_8701.PNG'); }
         .bg-school-walk { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('camphoto_959030623.jpg'); }
-        .bg-separate-cities { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?q=80&w=1200'); }
-        .bg-social-like { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200'); }
-        .bg-cafe-meet { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200'); }
-        .bg-dating { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200'); }
+        .bg-separate-cities { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img1345.jpg'); }
+        .bg-social-like { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG_8689[1].PNG'); }
+        .bg-cafe-meet { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('IMG_8706.PNG'); }
+        .bg-dating { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_3234.PNG'); }
         .bg-wedding { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_8687.jpg'); }
-        .bg-wedding-ring { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200'); }
+        .bg-wedding-ring { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('IMG_8695.PNG'); }
 
         .overlay {
             position: absolute;
@@ -171,7 +171,7 @@
 
         <div id="ui-layer" class="hidden">
             <div id="dialog-box">
-                <div id="speaker-name">Дмитрий</div>
+                <div id="speaker-name">Дима</div>
                 <div id="text">...</div>
                 <div id="choices"></div>
             </div>
@@ -182,44 +182,44 @@
         const scenes = [
             {
                 bgClass: 'bg-2004-school',
-                speaker: 'Дмитрий',
+                speaker: 'Дима',
                 text: '2004 год. Мне 10 лет. Я классе новенький, только перевелся из другого района. Войдя в класс первый раз я увидел Её. Она была просто шикарна! Мое сердце забилось чаще...',
                 choices: [{ text: 'Она мне очень понравилась ❤️', next: 1 }]
             },
             {
                 bgClass: 'bg-school-walk',
-                speaker: 'Дмитрий',
+                speaker: 'Дима',
                 text: 'Спустя какое то время мы начали общаться. Я провожал её до дома, носил портфель, один раз помогал с уроками. Но тогда я был лишь верным другом...',
                 choices: [{ text: 'Прошли школьные годы 😔', next: 2 }]
             },
             {
                 bgClass: 'bg-separate-cities',
-                speaker: 'Дмитрий',
+                speaker: 'Дима',
                 text: 'После школы жизнь развела нас. Разные города, учёба, работа, новые знакомства. Связь оборвалась на долгих 12 лет...',
                 choices: [{ text: 'Но судьба ждала своего часа...', next: 3 }]
             },
             {
                 bgClass: 'bg-social-like',
-                speaker: 'Дмитрий',
+                speaker: 'Дима',
                 text: '7 марта 2024 года. Я увидел её лайк в соцсети под своим фото и как оказалось он перевернул всё. Я решил написать ей, мы начали переписываться и договорились встретиться на следующий день.',
                 choices: [{ text: 'Договориться о встрече в кафе ☕', next: 4 }]
             },
             {
                 bgClass: 'bg-cafe-meet',
-                speaker: 'Жена',
-                text: 'Вечер в кафе. Мы смеялись, вспоминая школьные годы, восполняли пробелы 12 летнего перерыва. И когда мы решили что нужно встретиться еще, она вдруг спросила: "А **** будет?". И по моему этот вопрос был неожиданным для нас двоих. Я ответил не раздумывая!',
+                speaker: 'Катя',
+                text: 'Вечер в кафе. Мы смеялись, вспоминая школьные годы, восполняли пробелы 12 летнего перерыва. И когда мы решили что нужно встретиться еще, я вдруг спросила: "А **** будет?". И по моему этот вопрос был неожиданным для нас двоих. Он ответил не раздумывая!',
                 choices: [{ text: '"Да!" — и это было начало новой главы 😏', next: 5 }]
             },
             {
                 bgClass: 'bg-dating',
-                speaker: 'Дмитрий',
+                speaker: 'Дима',
                 text: 'Любовь вспыхнула ярче, чем когда-либо. Мы поняли, что 12 лет разлуки были лишь подготовкой к этому моменту.',
                 choices: [{ text: 'Спустя год мы решили пожениться 💒', next: 6 }]
             },
             {
                 bgClass: 'bg-wedding',
                 speaker: 'Свадебный ведущий',
-                text: 'Под звуки марша Мендельсона мы стали мужем и женой. Официально и навсегда.',
+                text: 'Под звуки марша Мендельсона вы стали мужем и женой. Официально и навсегда.',
                 choices: [{ text: 'Но впереди был самый важный шаг 💍', next: 7 }]
             },
             {
