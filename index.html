@@ -42,25 +42,33 @@
             left: 0;
             width: 100%;
             height: 100%;
-    
-    /* ✨ ИДЕАЛЬНО ДЛЯ ЛЮБОГО ЭКРАНА */
-            background-size: contain;           /* ВСЯ картинка видна */
-            background-position: center center; /* Центр */
-            background-repeat: no-repeat;       /* Без повторов */
-    
-    /* Запасной цвет если картинка мала */
-            background-color: rgba(26,26,46,0.9);
-    
             transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
         }
+
+/* ✨ ДВОЙНАЯ КАРТИНКА (основная + полупрозрачная копия) */
+        .scene-bg.your-photo {
+            background: 
+                /* Слой 1: Полупрозрачная копия (размытая) */
+                rgba(255, 255, 255, 0.15),
+                
+                /* Слой 2: Основная картинка (чуть меньше) */
+                url('твоя-картинка.jpg') center / 85% no-repeat,
+                
+                /* Слой 3: Заполнение краёв той же картинкой */
+                url('твоя-картинка.jpg') center / contain repeat,
+                
+                /* Слой 4: Тёмный фон */
+                linear-gradient(135deg, rgba(26,26,46,0.98) 0%, rgba(15,14,23,0.95) 100%);
+        }
+
 
 
         /* --- СЕКЦИЯ ВАШИХ ФОТО --- */
         /* Замените названия файлов на свои, если они лежат в той же папке на GitHub */
         .bg-2004-school { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_8701.PNG'); }
-        .bg-school-walk { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('camphoto_959030623.jpg'); }
-        .bg-separate-cities { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img1345.jpg'); }
+        .bg-school-walk { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img1231.png'); }
+        .bg-separate-cities { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img5432.png'); }
         .bg-social-like { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG_8689[1].PNG'); }
         .bg-cafe-meet { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('IMG_8706.PNG'); }
         .bg-dating { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_3234.JPG'); }
